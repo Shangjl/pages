@@ -11,7 +11,7 @@
     "page": "TabAgree",
     "desc": "拉片检索系统同意协议",
     "run:dev": "npm run dev --page=TabAgree --mobile --baseUrl=/TabAgree",
-    "run:build": "npm run build --page=TabAgree --mobile --baseUrl=/multiple-page/TabAgree"
+    "run:build": "npm run build --page=TabAgree --mobile --baseUrl=/pages/TabAgree"
   },
   {
     "page": "TestH5Scan",
