@@ -89,7 +89,7 @@ export default defineConfig({
   ],
   // 构建配置
   build: {
-    outDir: path.resolve(__dirname, `dist/${npm_config_page}`), // 指定输出路径
+    outDir: path.resolve(__dirname, `docs/${npm_config_page}`), // 指定输出路径
     assetsInlineLimit: 4096, //小于此阈值的导入或引用资源将内联为 base64 编码，以避免额外的 http 请求
     emptyOutDir: true, //Vite 会在构建时清空该目录
     rollupOptions: {
