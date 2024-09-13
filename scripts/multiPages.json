@@ -1,0 +1,34 @@
+[
+  {
+    "page": "client",
+    "desc": "客户端"
+  },
+  {
+    "page": "admin",
+    "desc": "管理台"
+  },
+  {
+    "page": "TabAgree",
+    "desc": "拉片检索系统同意协议",
+    "run:dev": "npm run dev --page=TabAgree --mobile --baseUrl=/TabAgree",
+    "run:build": "npm run build --page=TabAgree --mobile --baseUrl=/multiple-page/TabAgree"
+  },
+  {
+    "page": "TestH5Scan",
+    "desc": "测试h5扫码组件",
+    "run:dev": "npm run dev --page=TestH5Scan --mobile --baseUrl=/TestH5Scan",
+    "run:build": "npm run build --page=TestH5Scan --mobile --baseUrl=/multiple-page/TestH5Scan"
+  },
+  {
+    "page": "TabPreview",
+    "desc": "拉片检索图片点击预览",
+    "run:dev": "npm run dev --page=TabPreview --mobile --baseUrl=/TabPreview",
+    "run:build": "npm run build --page=TabPreview --mobile --baseUrl=/multiple-page/TabPreview"
+  },
+  {
+    "page": "HsdMobileAllAppBar",
+    "desc": "HSD-Moble的全部应用tabBar",
+    "run:dev": "npm run dev --page=HsdMobileAllAppBar --mobile --baseUrl=/HsdMobileAllAppBar",
+    "run:build": "npm run build --page=HsdMobileAllAppBar --mobile --baseUrl=/multiple-page/HsdMobileAllAppBar"
+  }
+]
