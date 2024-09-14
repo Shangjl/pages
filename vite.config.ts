@@ -104,7 +104,11 @@ export default defineConfig({
         compact: true,
         manualChunks: (id: string) => {
           if (id.includes('node_modules')) {
-            return id.toString().split('node_modules/')[1].split('/')[0].toString() // 拆分多个vendors
+            let string = id.toString().split('node_modules/')[1].split('/')[0];
+            if (string[0] === '.') {
+              string = string.substring(1);
+            }
+            return string.toString() // 拆分多个vendors
           }
         }
       }
