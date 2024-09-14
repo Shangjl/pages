@@ -30,5 +30,11 @@
     "desc": "HSD-Moble的全部应用tabBar",
     "run:dev": "npm run dev --page=HsdMobileAllAppBar --mobile --baseUrl=/HsdMobileAllAppBar",
     "run:build": "npm run build --page=HsdMobileAllAppBar --mobile --baseUrl=/multiple-page/HsdMobileAllAppBar"
+  },
+  {
+    "page": "excel-common",
+    "desc": "excel工具",
+    "run:dev": "npm run dev --page=excel-common  --baseUrl=/excel-common",
+    "run:build": "npm run build --page=excel-common --baseUrl=/pages/excel-common"
   }
 ]
