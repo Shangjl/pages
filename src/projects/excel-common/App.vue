@@ -8,9 +8,10 @@
         <el-button size="small">现金银行明细上传</el-button>
       </el-upload>
     </div>
-    <el-table v-if="showSystemTable" :data="filterSystemData" stripe style="width: 50%;" height="calc(100vh - 100px)">
-      <el-table-column prop="date" label="时间"/>
-      <el-table-column prop="objName" label="对象名称" width="250px" show-overflow-tooltip/>
+    <el-table border v-if="showSystemTable" :data="filterSystemData" stripe style="width: 50%;" height="calc(100vh - 100px)">
+      <el-table-column prop="date" label="时间" width="250"/>
+      <el-table-column prop="objName" label="对象名称" width="250" show-overflow-tooltip/>
+      <el-table-column prop="incomeAmount" label="收入金额"/>
       <el-table-column prop="expenditureAmount" label="支出金额"/>
     </el-table>
   </div>
@@ -50,8 +51,9 @@ const test = Debounce(function () {
   })*/
   filterSystemData.value = filterSystemData.value.map(m => {
     return {
-      date: `${formatDate(m[1], 'yyyy-MM-dd')} ${m[12]}`,
+      date: `${formatDate(m[1], 'yyyy-MM-dd')} ${m[12].replace(/；|“|：|;|b/g, ':')}`,
       objName: m[4],
+      incomeAmount: m[8],
       expenditureAmount: m[9]
     }
   })
