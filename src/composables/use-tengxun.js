@@ -1,5 +1,5 @@
 import wx from 'weixin-js-sdk'
-import { wxJsSdkConfigApi } from '@/api/wx/index.js'
+import { wxJsSdkConfigApi } from '@/api/wx/index.jsx'
 
 /**
  * 使用wsJSSDK

@@ -153,3 +153,34 @@ export const log = {
     console.error(`${patternTime(new Date(), 'HH:mm:ss:S')} ${msg}`)
   },
 }
+
+/**
+ *
+ * @param [option]
+ * @param {Array} [option.accept] ex ['.csv', '.xlsx']
+ * @return {*}
+ */
+export function chooseFile(option = {}) {
+  const {
+    accept = ['.csv', '.xlsx']
+  } = option
+  return new Promise(resolve => {
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = accept.join(',');
+
+    input.addEventListener('change', function (event) {
+      // 获取选择的文件列表
+      const fileList = event.target.files;
+
+      // 检查是否选择了文件
+      if (fileList.length > 0) {
+        resolve( fileList[0])
+
+      } else {
+        console.log('没有选择文件');
+      }
+    });
+    input.click();
+  })
+}

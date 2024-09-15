@@ -9,7 +9,7 @@ import {
   vibration,
   initializationDevice,
   log
-} from '@/global/utils/index.js'
+} from '@/global/utils/index.jsx'
 
 const {} = usePublic()
 export const sessionKey = 'available-camera-id'

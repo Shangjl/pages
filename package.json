@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "newPage": "node ./scripts/index.js",
+    "build:all": "node ./scripts/build-all.js",
     "dev": "vite",
     "build:check": "run-p type-check build",
     "preview": "vite preview",
