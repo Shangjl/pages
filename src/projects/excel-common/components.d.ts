@@ -8,8 +8,6 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     ElButton: typeof import('element-plus/es')['ElButton']
-    ElTable: typeof import('element-plus/es')['ElTable']
-    ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
     ElUpload: typeof import('element-plus/es')['ElUpload']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
