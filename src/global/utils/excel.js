@@ -1,9 +1,8 @@
 import ExcelJS from "exceljs";
 import {saveAs} from 'file-saver';
-
 import Debounce from "@/global/utils/debounce.js";
 import PapaParse from "papaparse";
-
+import {Workbook} from "exceljs";
 /**
  * 导出&下载excel
  * @param option
@@ -27,6 +26,24 @@ export function exportExcel(option) {
     // 设置列
     worksheet.columns = columnsSetting;
     worksheet.addRows(rows);
+
+    workbook.xlsx.writeBuffer().then(data => {
+        const blob = new Blob([data], {type: ''});
+        saveAs(blob, fileName);
+    });
+}
+
+/**
+ * 下载workbook中的数据
+ * @param option
+ * @param {Workbook} option.workbook
+ * @param {String} option.fileName
+ */
+export function downloadWorkBook(option) {
+    const {
+        workbook,
+        fileName
+    } = option;
     workbook.xlsx.writeBuffer().then(data => {
         const blob = new Blob([data], {type: ''});
         saveAs(blob, fileName);

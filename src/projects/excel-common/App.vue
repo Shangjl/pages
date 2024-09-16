@@ -4,11 +4,21 @@
       <Upload name="现金银行系统数据"
               v-model="systemData"
               :filter="row => row?.[1]?.trim?.() === 'Indeterminate'"
+              :map="row => {
+                return {
+                  date: row[2],
+                  accountName: row[5],
+                  incomeAmount: row[9],
+                  disburseAmount: row[10],
+                  orderRemark: row[13],
+                  amount: row[9] + row[10],
+                  dateStr: format(row[2], 'yyyy-MM-dd'),
+                  timeStr: row[13].replace(/[;；：“]/gi, ':').substring(0, 5),
+                }
+              }"
       />
-
     </div>
     <div style="display: flex;gap: 20px;">
-
       <Upload name="支付宝"
               v-model="outer.zhiFuBaoData"
               :filter="row => row?.[11]?.trim?.() === '交易成功'"
@@ -23,6 +33,11 @@
 </template>
 <script setup>
 import Upload from '@/projects/excel-common/components/Upload/index.vue'
+import ExcelJS from "exceljs";
+import {writeZhiFuBaoCheckResultSheet} from "@/projects/excel-common/utils/index.js";
+import {downloadWorkBook} from "@/global/utils/excel.js";
+import _ from 'lodash'
+import {parse, format} from 'date-fns'
 
 // 系统数据
 const systemData = ref([]);
@@ -33,8 +48,18 @@ const outer = ref({
 })
 
 function handleCLickExport() {
-  console.log('systemData', systemData.value)
-  console.log('outer', outer.value)
+  const systemDataAmountGroup = _.groupBy(systemData.value, 'amount');
+
+  const workbook = new ExcelJS.Workbook();
+  writeZhiFuBaoCheckResultSheet({
+    workbook,
+    systemDataAmountGroup,
+    zhiFuBaoData: outer.value.zhiFuBaoData
+  });
+  downloadWorkBook({
+    workbook,
+    fileName: '参考.xlsx'
+  })
 }
 </script>
 <style>
