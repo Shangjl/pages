@@ -37,7 +37,7 @@
     "sass": "^1.77.7",
     "vant": "^4.9.2",
     "vconsole": "^3.15.1",
-    "vue": "^3.4.31",
+    "vue": "^3.5.6",
     "vue-router": "~4.0.x",
     "webrtc-adapter": "^9.0.1",
     "weixin-js-sdk": "^1.6.5"

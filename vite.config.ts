@@ -76,6 +76,7 @@ export default defineConfig({
                 // Auto register icon components
                 // 自动注册图标组件
                 IconsResolver({
+                    prefix: 'icon',
                     enabledCollections: ['ep'],
                 }),
                 // Auto register Element Plus components
