@@ -155,7 +155,7 @@ export const log = {
 }
 
 /**
- *
+ * 选择文件
  * @param [option]
  * @param {Array} [option.accept] ex ['.csv', '.xlsx']
  * @return {*}
@@ -183,4 +183,13 @@ export function chooseFile(option = {}) {
     });
     input.click();
   })
+}
+
+/**
+ * 判断字符串是否为数字
+ * @param str
+ * @return {boolean}
+ */
+export function isNumeric(str) {
+  return /^\d+$/.test(str);
 }
