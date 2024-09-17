@@ -7,7 +7,7 @@
       拖拽上传 <em>点击上传</em>
     </div>
     <template #tip>
-      <div style="display: flex;justify-content: space-around;align-items: center">
+      <div style="display: flex;justify-content: space-between;align-items: center">
         <el-switch disabled v-model="state"/>
         <span>{{ name }}</span>
       </div>
@@ -40,23 +40,24 @@ const state = computed(() => {
 })
 
 async function handleUpload(file) {
+  const option = {
+    file,
+    filter: props.filter,
+    map: props.map
+  }
   const fileName = file.name;
   if (fileName.endsWith('xlsx') || fileName.endsWith('xls')) {
-    data.value = await importExcel({
-      file,
-      filter: props.filter,
-      map: props.map
-    })
+    data.value = await importExcel(option)
 
   }
 
   if (fileName.endsWith('csv')) {
-    data.value = await importCsv({
-      file,
-      filter: props.filter,
-      map: props.map
-    });
+    data.value = await importCsv(option);
   }
+
+  setTimeout(()=> {
+    console.log(data.value)
+  }, 1000)
   return false
 }
 </script>
