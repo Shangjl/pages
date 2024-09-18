@@ -55,9 +55,7 @@ async function handleUpload(file) {
     data.value = await importCsv(option);
   }
 
-  setTimeout(()=> {
-    console.log(data.value)
-  }, 1000)
+  console.log('RR', JSON.stringify(data.value))
   return false
 }
 </script>
